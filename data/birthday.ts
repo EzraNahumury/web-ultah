@@ -26,6 +26,8 @@ export interface GalleryPhoto {
 export interface VideoClip {
   /** Path under /public, e.g. "/video/m1.mp4". */
   src: string;
+  /** Still frame shown instantly before the clip streams. */
+  poster?: string;
   /** Short caption shown with the clip. */
   caption: string;
   /** Accessible description. */
@@ -116,7 +118,7 @@ export const birthday: BirthdayConfig = {
     greetingPrefix: "Happy Birthday,",
     subheadline:
       "Today is all about celebrating you — and the beautiful person you are.",
-    imageSrc: "/images/paper.jpg",
+    imageSrc: "/images/paper.webp",
     videoSrc: null,
   },
 
@@ -126,15 +128,15 @@ export const birthday: BirthdayConfig = {
       "A small collection of the ordinary days that never felt ordinary with you.",
     // ✏️ Add your own photos. Keep `src` null to show a placeholder for now.
     photos: [
-      { src: "/images/1.png", caption: "The quiet ones are my favourite.", tag: "No. 01", alt: "A favourite memory together" },
-      { src: "/images/2.png", caption: "Golden hour, and you.", tag: "No. 02", alt: "A favourite memory together" },
-      { src: "/images/3.png", caption: "Somewhere we'd happily get lost again.", tag: "No. 03", alt: "A favourite memory together" },
-      { src: "/images/4.png", caption: "The day I didn't want to end.", tag: "No. 04", alt: "A favourite memory together" },
-      { src: "/images/5.png", caption: "Just us, nowhere to be.", tag: "No. 05", alt: "A favourite memory together" },
-      { src: "/images/6.png", caption: "Proof that laughing is better with you.", tag: "No. 06", alt: "A favourite memory together" },
-      { src: "/images/7.png", caption: "Every version of us, still my favourite.", tag: "No. 07", alt: "A favourite memory together" },
-      { src: "/images/8.png", caption: "Here's to many more of these.", tag: "No. 08", alt: "A favourite memory together" },
-      { src: "/images/9.png", caption: "My favourite place is next to you.", tag: "No. 09", alt: "A favourite memory together" },
+      { src: "/images/1.webp", caption: "The quiet ones are my favourite.", tag: "No. 01", alt: "A favourite memory together" },
+      { src: "/images/2.webp", caption: "Golden hour, and you.", tag: "No. 02", alt: "A favourite memory together" },
+      { src: "/images/3.webp", caption: "Somewhere we'd happily get lost again.", tag: "No. 03", alt: "A favourite memory together" },
+      { src: "/images/4.webp", caption: "The day I didn't want to end.", tag: "No. 04", alt: "A favourite memory together" },
+      { src: "/images/5.webp", caption: "Just us, nowhere to be.", tag: "No. 05", alt: "A favourite memory together" },
+      { src: "/images/6.webp", caption: "Proof that laughing is better with you.", tag: "No. 06", alt: "A favourite memory together" },
+      { src: "/images/7.webp", caption: "Every version of us, still my favourite.", tag: "No. 07", alt: "A favourite memory together" },
+      { src: "/images/8.webp", caption: "Here's to many more of these.", tag: "No. 08", alt: "A favourite memory together" },
+      { src: "/images/9.webp", caption: "My favourite place is next to you.", tag: "No. 09", alt: "A favourite memory together" },
     ],
   },
 
@@ -144,13 +146,13 @@ export const birthday: BirthdayConfig = {
       "Some moments are too alive to hold still — here they are, just as they happened.",
     // ✏️ Clips live in /public/video/. Add or reorder freely.
     items: [
-      { src: "/video/m1.mp4", caption: "Caught mid-laugh.", alt: "A video memory together" },
-      { src: "/video/m2.mp4", caption: "A little clip of us.", alt: "A video memory together" },
-      { src: "/video/m3.mp4", caption: "Press play — hear us smile.", alt: "A video memory together" },
-      { src: "/video/m4.mp4", caption: "Just another good day.", alt: "A video memory together" },
-      { src: "/video/m5.mp4", caption: "The little in-between moments.", alt: "A video memory together" },
-      { src: "/video/m6.mp4", caption: "Us, exactly as we are.", alt: "A video memory together" },
-      { src: "/video/m7.mp4", caption: "A moment worth replaying.", alt: "A video memory together" },
+      { src: "/video/m1.mp4", poster: "/video/posters/m1.jpg", caption: "Caught mid-laugh.", alt: "A video memory together" },
+      { src: "/video/m2.mp4", poster: "/video/posters/m2.jpg", caption: "A little clip of us.", alt: "A video memory together" },
+      { src: "/video/m3.mp4", poster: "/video/posters/m3.jpg", caption: "Press play — hear us smile.", alt: "A video memory together" },
+      { src: "/video/m4.mp4", poster: "/video/posters/m4.jpg", caption: "Just another good day.", alt: "A video memory together" },
+      { src: "/video/m5.mp4", poster: "/video/posters/m5.jpg", caption: "The little in-between moments.", alt: "A video memory together" },
+      { src: "/video/m6.mp4", poster: "/video/posters/m6.jpg", caption: "Us, exactly as we are.", alt: "A video memory together" },
+      { src: "/video/m7.mp4", poster: "/video/posters/m7.jpg", caption: "A moment worth replaying.", alt: "A video memory together" },
     ],
   },
 

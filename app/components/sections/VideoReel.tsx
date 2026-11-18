@@ -57,10 +57,11 @@ export default function VideoReel() {
         className="group block w-full text-left"
       >
         <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl border border-gold/25 bg-black shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)] transition-all duration-700 ease-[var(--ease-silk)] group-hover:-translate-y-2 group-hover:border-gold/60">
-          {/* First frame only (metadata) — the full clip streams on tap. Keeps the page light. */}
+          {/* Poster shows instantly; the full clip streams only on tap. Keeps the page light. */}
           <video
-            src={`${clip.src}#t=0.1`}
-            preload="metadata"
+            src={clip.src}
+            poster={clip.poster}
+            preload="none"
             muted
             playsInline
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-[var(--ease-silk)] group-hover:scale-105"
@@ -201,6 +202,7 @@ export default function VideoReel() {
             <video
               key={open}
               src={active.src}
+              poster={active.poster}
               className="max-h-[80vh] w-auto max-w-full rounded-lg bg-black shadow-2xl"
               controls
               autoPlay
