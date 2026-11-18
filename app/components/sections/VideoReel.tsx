@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import birthday, { type VideoClip } from "@/data/birthday";
 import { Reveal } from "@/app/components/Reveal";
-import AutoVideo from "@/app/components/AutoVideo";
 import DarkAmbient from "@/app/components/DarkAmbient";
 import { useReducedMotion } from "@/app/lib/hooks";
 import { ChevronLeft, ChevronRight, Close } from "@/app/components/Icons";
@@ -58,8 +57,12 @@ export default function VideoReel() {
         className="group block w-full text-left"
       >
         <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl border border-gold/25 bg-black shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)] transition-all duration-700 ease-[var(--ease-silk)] group-hover:-translate-y-2 group-hover:border-gold/60">
-          <AutoVideo
-            src={clip.src}
+          {/* First frame only (metadata) — the full clip streams on tap. Keeps the page light. */}
+          <video
+            src={`${clip.src}#t=0.1`}
+            preload="metadata"
+            muted
+            playsInline
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-[var(--ease-silk)] group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-cocoa/80 via-transparent to-cocoa/10" />

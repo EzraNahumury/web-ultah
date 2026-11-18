@@ -20,13 +20,22 @@ function Placeholder({ photo }: { photo: GalleryPhoto }) {
   );
 }
 
-function Frame({ photo, sizes }: { photo: GalleryPhoto; sizes: string }) {
+function Frame({
+  photo,
+  sizes,
+  priority = false,
+}: {
+  photo: GalleryPhoto;
+  sizes: string;
+  priority?: boolean;
+}) {
   if (!photo.src) return <Placeholder photo={photo} />;
   return (
     <Image
       src={photo.src}
       alt={photo.alt}
       fill
+      priority={priority}
       sizes={sizes}
       className="object-cover"
     />
@@ -111,7 +120,7 @@ export default function Memories() {
                 >
                   <div className="relative aspect-[4/5] w-full overflow-hidden bg-ivory-deep">
                     <div className="h-full w-full transition-transform duration-[1200ms] ease-[var(--ease-silk)] group-hover:scale-105">
-                      <Frame photo={photo} sizes="(max-width:640px) 90vw, (max-width:1024px) 45vw, 30vw" />
+                      <Frame photo={photo} priority={i < 3} sizes="(max-width:640px) 90vw, (max-width:1024px) 45vw, 30vw" />
                     </div>
                     <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5" />
                   </div>
